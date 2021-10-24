@@ -28,7 +28,6 @@ class MyApp extends StatelessWidget {
         BlocProvider(
           create: (context) =>
               IncompletedPageBloc(InitInIncompletedPageState()),
-          //child: const HomeScreen(),
         )
       ], child: const HomeScreen()),
     );
