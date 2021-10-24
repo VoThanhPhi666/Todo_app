@@ -23,18 +23,6 @@ double width =
 double height =
     MediaQueryData.fromWindow(WidgetsBinding.instance!.window).size.height;
 
-class TaskComplete {
-  String task;
-  String time;
-  TaskComplete(this.task, this.time);
-}
-
-class TaskIncomplete {
-  String task;
-  String time;
-  TaskIncomplete(this.task, this.time);
-}
-
 List<ItemListView> listViewMain = [];
 List<ItemListViewComplete> listViewComplete = [];
 List<ItemListViewIncomplete> listViewIncomplete = [];
