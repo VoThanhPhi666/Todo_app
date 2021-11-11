@@ -30,6 +30,17 @@ class ItemListViewState extends State<ItemListView> {
     super.initState();
   }
 
+  void swapState() {
+    isOnTap = !isOnTap;
+    if (isOnTap == true) {
+      completedPageBloc.add(CreateItemInCompletedPageEvent());
+      incompletedPageBloc.add(CreateItemInIncompletedPageEvent());
+    } else {
+      incompletedPageBloc.add(CreateItemInIncompletedPageEvent());
+      completedPageBloc.add(CreateItemInCompletedPageEvent());
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -55,14 +66,15 @@ class ItemListViewState extends State<ItemListView> {
                   ),
             onPressed: () {
               setState(() {
-                isOnTap = !isOnTap;
-                if (isOnTap == true) {
-                  completedPageBloc.add(CreateItemInCompletedPageEvent());
-                  incompletedPageBloc.add(CreateItemInIncompletedPageEvent());
-                } else {
-                  incompletedPageBloc.add(CreateItemInIncompletedPageEvent());
-                  completedPageBloc.add(CreateItemInCompletedPageEvent());
-                }
+                swapState();
+                // isOnTap = !isOnTap;
+                // if (isOnTap == true) {
+                //   completedPageBloc.add(CreateItemInCompletedPageEvent());
+                //   incompletedPageBloc.add(CreateItemInIncompletedPageEvent());
+                // } else {
+                //   incompletedPageBloc.add(CreateItemInIncompletedPageEvent());
+                //   completedPageBloc.add(CreateItemInCompletedPageEvent());
+                // }
               });
             },
           ),

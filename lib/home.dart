@@ -20,7 +20,7 @@ class HomeScreenState extends State<HomeScreen> {
   late IncompletedPageBloc incompletedPageBloc;
   late HomeBloc homeBloc;
   int index = 0;
-
+  bool isEmpty = false;
   @override
   void initState() {
     homeBloc = BlocProvider.of(context);
