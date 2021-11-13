@@ -45,6 +45,7 @@ class HomeScreenState extends State<HomeScreen> {
           width: 300,
           decoration: const BoxDecoration(),
           child: IconButton(
+              key: const Key("addButtonKey"),
               onPressed: () {
                 showDialog(
                     context: context,
@@ -78,6 +79,7 @@ class HomeScreenState extends State<HomeScreen> {
                                               BorderRadius.circular(20)),
                                       padding: const EdgeInsets.all(5.0),
                                       child: TextField(
+                                        key: const Key("textFieldKey"),
                                         autofocus: true,
                                         onChanged: (String text) {
                                           controller.text = text;
@@ -88,6 +90,7 @@ class HomeScreenState extends State<HomeScreen> {
                                       )),
                                 ),
                                 TextButton(
+                                    key: const Key("createButtonKey"),
                                     style: ButtonStyle(
                                         shadowColor:
                                             ButtonStyleButton.allOrNull<Color>(

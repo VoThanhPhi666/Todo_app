@@ -3,7 +3,6 @@ import 'package:intl/intl.dart';
 
 void main() {
 //Unit test
-
   //test class/////////////////////////////////
   test("object itemListViewMainTest should be not null", () {
     ItemListViewMainTest itemListViewMainTest =
@@ -18,36 +17,37 @@ void main() {
   });
 
   //test properties////////////////////////////////
-  test("three properties should not be null", () {
+  test("three properties of itemListViewMainTest should not be null", () {
     ItemListViewMainTest itemListViewMainTest =
-        ItemListViewMainTest("task1", "12-12-2012");
+        ItemListViewMainTest("task1", "12-12-2012  12:00:00");
     expect(itemListViewMainTest.nameTask, isNotNull);
     expect(itemListViewMainTest.dateTimeCreate, isNotNull);
     expect(itemListViewMainTest.isOnTap, isNotNull);
   });
   test("type of properties nameTask and dateTimeCreate should be String", () {
     ItemListViewMainTest itemListViewMainTest =
-        ItemListViewMainTest("task1", "12-12-2012");
+        ItemListViewMainTest("task1", "12-12-2012  12:00:00");
     expect(itemListViewMainTest.nameTask.runtimeType, String);
     expect(itemListViewMainTest.dateTimeCreate.runtimeType, String);
   });
   test("type of property isOnTap should be bool", () {
     ItemListViewMainTest itemListViewMainTest =
-        ItemListViewMainTest("task1", "12-12-2012");
+        ItemListViewMainTest("task1", "12-12-2012  12:00:00");
     expect(itemListViewMainTest.isOnTap.runtimeType, bool);
   });
   test("initial isOnTap's value of object itemListViewMainTest should be false",
       () {
     ItemListViewMainTest itemListViewMainTest =
-        ItemListViewMainTest("task1", "12-12-2012");
+        ItemListViewMainTest("task1", "12-12-2012  12:00:00");
     expect(itemListViewMainTest.isOnTap, false);
   });
   test("nameTask's value of object itemListViewMainTest should be task1", () {
     ItemListViewMainTest itemListViewMainTest =
-        ItemListViewMainTest("task1", "12-12-2012");
+        ItemListViewMainTest("task1", "12-12-2012  12:00:00");
     expect(itemListViewMainTest.nameTask, "task1");
   });
-  test("dateTimeCreate's value of object itemListViewMainTest should be task1",
+  test(
+      "dateTimeCreate's value of object itemListViewMainTest should be 12-12-2012  15:30:00",
       () {
     ItemListViewMainTest itemListViewMainTest =
         ItemListViewMainTest("task1", "12-12-2012  15:30:00");
@@ -55,19 +55,30 @@ void main() {
   });
   //test method////////////////////////////////////
   test("value of isOnTap should be change from false to true", () {
-    final itemListViewTest = ItemListViewMainTest("di hoc", "12-12-2012");
+    final itemListViewTest =
+        ItemListViewMainTest("di hoc", "12-12-2012  12:00:00");
     itemListViewTest.swapstate();
     expect(itemListViewTest.isOnTap, true);
   });
 
   //test function///////////////////////////////////
+  test("itemListViewMainTest should be added to listViewMainTest", () {
+    ItemListViewMainTest itemListViewMainTest =
+        ItemListViewMainTest("task1", "12-12-2021  12:00:00");
+    addItem(itemListViewMainTest);
+    expect(listViewMainTest[0], itemListViewMainTest);
+  });
   test(
-      "item1, item3 should be added to listViewCompleteTest and\n"
-      "item2, item4 should be added to listViewIncompleteTest", () {
-    ItemListViewMainTest item1 = ItemListViewMainTest("task1", "12-12-2021");
-    ItemListViewMainTest item2 = ItemListViewMainTest("task2", "12-12-2021");
-    ItemListViewMainTest item3 = ItemListViewMainTest("task3", "12-12-2021");
-    ItemListViewMainTest item4 = ItemListViewMainTest("task4", "12-12-2021");
+      "item1, item3 should be added to listViewCompleteTest and item2, item4 should be added to listViewIncompleteTest",
+      () {
+    ItemListViewMainTest item1 =
+        ItemListViewMainTest("task1", "12-12-2021  12:00:00");
+    ItemListViewMainTest item2 =
+        ItemListViewMainTest("task2", "12-12-2021  12:00:00");
+    ItemListViewMainTest item3 =
+        ItemListViewMainTest("task3", "12-12-2021  12:00:00");
+    ItemListViewMainTest item4 =
+        ItemListViewMainTest("task4", "12-12-2021  12:00:00");
     listViewMainTest = [
       item1,
       item2,
@@ -118,4 +129,8 @@ void reset() {
           .add(ItemListViewIncompleteTest(item.nameTask, item.dateTimeCreate));
     }
   }
+}
+
+void addItem(ItemListViewMainTest item) {
+  listViewMainTest.add(item);
 }

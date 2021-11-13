@@ -1,4 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:todoapp/View/item_list_view.dart';
 
 import 'package:todoapp/global.dart';
 
@@ -8,7 +9,8 @@ import 'package:todoapp/state_managent/State/home_state.dart';
 class HomeBloc extends Bloc<HomePageEvent, HomeState> {
   HomeBloc(HomeState initialState) : super(initialState) {
     on<CreateItemInHomePageEvent>((event, emit) {
-      listViewMain.add(event.data);
+      // listViewMain.add(event.data);
+      addItem(event.data);
       emit(CreateItemInHomeState(listViewMain));
     });
   }

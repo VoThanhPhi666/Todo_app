@@ -12,13 +12,7 @@ class IncompletedPageBloc
     extends Bloc<IncompletedPageEvent, IncompletedPageState> {
   IncompletedPageBloc(IncompletedPageState initialState) : super(initialState) {
     on<CreateItemInIncompletedPageEvent>((event, emit) {
-      listViewIncomplete = [];
-      for (var element in listViewMain) {
-        if (element.keyy!.currentState!.isOnTap == false) {
-          listViewIncomplete.add(
-              ItemListViewIncomplete(element.nameTask, element.dateTimeCreate));
-        }
-      }
+      reset();
       emit(CreateItemInIncompletedPageState(listViewIncomplete));
     });
   }

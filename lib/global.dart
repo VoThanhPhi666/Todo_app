@@ -26,3 +26,21 @@ double height =
 List<ItemListView> listViewMain = [];
 List<ItemListViewComplete> listViewComplete = [];
 List<ItemListViewIncomplete> listViewIncomplete = [];
+
+void addItem(ItemListView item) {
+  listViewMain.add(item);
+}
+
+void reset() {
+  listViewComplete = [];
+  listViewIncomplete = [];
+  for (var element in listViewMain) {
+    if (element.keyy!.currentState!.isOnTap == true) {
+      listViewComplete
+          .add(ItemListViewComplete(element.nameTask, element.dateTimeCreate));
+    } else {
+      listViewIncomplete.add(
+          ItemListViewIncomplete(element.nameTask, element.dateTimeCreate));
+    }
+  }
+}

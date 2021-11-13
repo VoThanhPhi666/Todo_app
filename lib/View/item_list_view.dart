@@ -54,6 +54,7 @@ class ItemListViewState extends State<ItemListView> {
           subtitle: Text(widget.dateTimeCreate),
           title: Text(widget.nameTask),
           trailing: IconButton(
+            key: const Key("checkBoxKey"),
             icon: !isOnTap
                 ? Icon(
                     Icons.check_circle_outline,
